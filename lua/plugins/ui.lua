@@ -1,11 +1,5 @@
 return {
     {
-        "snacks.nvim",
-        opts = {
-            -- scroll = { enabled = false }, -- Disable smooth scrolling
-        },
-    },
-    {
         "EdenEast/nightfox.nvim",
         config = function()
             require("nightfox").setup({
