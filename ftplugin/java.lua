@@ -11,6 +11,7 @@ local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.onCompletionItemSelectedCommand = "editor.action.triggerParameterHints"
 
 local on_attach = function()
+    local api = vim.api
     api.nvim_set_keymap("n", "<A-o>", "<Cmd>lua require'jdtls'.organize_imports()<CR>", { noremap = true, silent = true })
     api.nvim_set_keymap("n", "crv", "<Cmd>lua require('jdtls').extract_variable()<CR>", { noremap = true, silent = true })
     api.nvim_set_keymap("v", "crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { noremap = true, silent = true })
