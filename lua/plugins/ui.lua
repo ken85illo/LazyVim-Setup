@@ -1,5 +1,29 @@
 return {
     {
+        "snacks.nvim",
+        opts = {
+            -- scroll = { enabled = false },
+        },
+    },
+    {
+        "folke/noice.nvim",
+        opts = {
+            presets = {
+                lsp_doc_border = true, --Add lsp borders for hover
+            },
+        },
+    },
+    {
+        "neovim/nvim-lspconfig",
+        opts = {
+            diagnostics = {
+                float = {
+                    border = "rounded", --Add lsp borders for diagnostics
+                },
+            },
+        },
+    },
+    {
         "EdenEast/nightfox.nvim",
         config = function()
             require("nightfox").setup({
@@ -35,5 +59,22 @@ return {
                 },
             },
         },
+    },
+    {
+        "goolord/alpha-nvim",
+        opts = function()
+            local dashboard = require("alpha.themes.dashboard")
+            dashboard.section.header.val = {
+                [[                                                            Z]],
+                [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗      Z]],
+                [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║   z]],
+                [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ z]],
+                [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
+                [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
+                [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
+                [[                                                    ]],
+            }
+            return dashboard
+        end,
     },
 }

@@ -11,19 +11,19 @@ local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.onCompletionItemSelectedCommand = "editor.action.triggerParameterHints"
 
 local on_attach = function()
-    vim.api.nvim_set_keymap("n", "<A-o>", "<Cmd>lua require'jdtls'.organize_imports()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("n", "crv", "<Cmd>lua require('jdtls').extract_variable()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("v", "crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("n", "crc", "<Cmd>lua require('jdtls').extract_constant()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("v", "crc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("v", "crm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { noremap = true, silent = true })
+    api.nvim_set_keymap("n", "<A-o>", "<Cmd>lua require'jdtls'.organize_imports()<CR>", { noremap = true, silent = true })
+    api.nvim_set_keymap("n", "crv", "<Cmd>lua require('jdtls').extract_variable()<CR>", { noremap = true, silent = true })
+    api.nvim_set_keymap("v", "crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { noremap = true, silent = true })
+    api.nvim_set_keymap("n", "crc", "<Cmd>lua require('jdtls').extract_constant()<CR>", { noremap = true, silent = true })
+    api.nvim_set_keymap("v", "crc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", { noremap = true, silent = true })
+    api.nvim_set_keymap("v", "crm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { noremap = true, silent = true })
 
-    vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+    api.nvim_create_autocmd({ "InsertEnter" }, {
         callback = function()
             vim.lsp.inlay_hint.enable(true, nil)
         end,
     })
-    vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+    api.nvim_create_autocmd({ "InsertLeave" }, {
         callback = function()
             vim.lsp.inlay_hint.enable(false, nil)
         end,
