@@ -17,7 +17,6 @@ return {
                     if type == ":" or type == "@" then
                         return { "cmdline" }
                     end
-                    return {}
                 end,
                 completion = {
                     trigger = {

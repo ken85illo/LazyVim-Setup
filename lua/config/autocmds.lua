@@ -14,15 +14,27 @@ api.nvim_create_autocmd({ "BufAdd", "BufEnter", "VimEnter" }, {
     pattern = "*",
     callback = function()
         api.nvim_set_hl(0, "WinSeparator", { fg = "#27354c" }) -- Show Window Borders
-        -- api.nvim_set_hl(0, "LspInlayHint", { fg = "#738091", bg = "NONE" }) -- Inlay Hints
 
         -- Snack Explorer
         api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-        -- api.nvim_set_hl(0, "SnacksPicker", { bg = "NONE" })
-        -- api.nvim_set_hl(0, "SnacksNormal", { bg = "NONE" })
-        -- api.nvim_set_hl(0, "SnacksNormalNC", { bg = "NONE" })
 
         api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" }) -- BufferLine
         api.nvim_set_hl(0, "NoiceSplit", { bg = "NONE" }) -- NoiceSplit
+    end,
+})
+
+api.nvim_create_autocmd({ "VimEnter", "InsertEnter" }, {
+    desc = "Enable Inlay Hints when in Insert Mode",
+    pattern = "*",
+    callback = function()
+        vim.lsp.inlay_hint.enable(true)
+    end,
+})
+
+api.nvim_create_autocmd({ "InsertLeave" }, {
+    desc = "Disable Inlay Hints when outside of Insert Mode",
+    pattern = "*",
+    callback = function()
+        vim.lsp.inlay_hint.enable(false)
     end,
 })
