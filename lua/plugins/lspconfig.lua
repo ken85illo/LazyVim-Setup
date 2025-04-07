@@ -11,7 +11,7 @@ return {
                 },
             },
             inlay_hints = {
-                enabled = false,
+                enabled = false, -- Disable inlay hints by default
             },
             setup = {},
         },
@@ -26,6 +26,7 @@ return {
                     height = 0.8,
                 },
             },
+            ensure_installed = { "clang-format" },
         },
     },
 }
