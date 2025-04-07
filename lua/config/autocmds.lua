@@ -9,7 +9,7 @@
 
 local api = vim.api
 
-api.nvim_create_autocmd({ "BufAdd", "BufEnter", "VimEnter" }, {
+api.nvim_create_autocmd({ "ColorScheme", "BufWinEnter", "WinNew" }, {
     desc = "Fix all backgrounds",
     pattern = "*",
     callback = function()
@@ -23,7 +23,7 @@ api.nvim_create_autocmd({ "BufAdd", "BufEnter", "VimEnter" }, {
     end,
 })
 
-api.nvim_create_autocmd({ "VimEnter", "InsertEnter" }, {
+api.nvim_create_autocmd({ "InsertEnter" }, {
     desc = "Enable Inlay Hints when in Insert Mode",
     pattern = "*",
     callback = function()
