@@ -2,7 +2,12 @@ return {
     {
         "folke/snacks.nvim",
         opts = {
-            scroll = { enabled = true },
+            scroll = { enabled = false }, -- Disables the scroll animation
+            styles = {
+                float = {
+                    border = "rounded",
+                },
+            },
         },
     },
     {
